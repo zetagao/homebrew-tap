@@ -1,0 +1,35 @@
+cask "limithud" do
+  version "2.0"
+  sha256 "aaa5d36c640354ea056c933e7815ce87ed271d4eea7d921bd55528a5159b2607"
+
+  url "https://github.com/zetagao/LimitHUD/releases/download/v#{version}/LimitHUD.zip"
+  name "LimitHUD"
+  desc "Menu-bar HUD for live Claude and Codex usage quotas"
+  homepage "https://github.com/zetagao/LimitHUD"
+
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
+
+  depends_on macos: ">= :ventura"
+
+  app "LimitHUD.app"
+
+  zap trash: [
+    "~/Library/HTTPStorages/com.zetagao.limithud",
+    "~/Library/Preferences/com.zetagao.limithud.plist",
+  ]
+
+  caveats <<~EOS
+    LimitHUD is open source and code-signed, but not Apple-notarized.
+    If you installed without --no-quarantine, macOS will block the first
+    launch — approve it in System Settings → Privacy & Security → "Open
+    Anyway". To skip that, install with:
+
+      brew install --no-quarantine zetagao/tap/limithud
+
+    On first run, allow the Keychain prompt (reads your browser's cookie
+    key locally) and the notification prompt.
+  EOS
+end
