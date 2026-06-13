@@ -1,6 +1,6 @@
 cask "limithud" do
-  version "2.0"
-  sha256 "aaa5d36c640354ea056c933e7815ce87ed271d4eea7d921bd55528a5159b2607"
+  version "2.1"
+  sha256 "5a7589a3bdf3ba5d21f2c8f75776fc6d8a406f02c70a6e3b839f7983d9f1f061"
 
   url "https://github.com/zetagao/LimitHUD/releases/download/v#{version}/LimitHUD.zip"
   name "LimitHUD"
